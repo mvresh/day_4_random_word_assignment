@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:day_4_random_word_assignment/words.dart';
 import 'package:flutter/material.dart';
+import 'package:english_words/english_words.dart';
 
 void main() {
   runApp(
@@ -32,9 +33,9 @@ class _randomWordPageState extends State<randomWordPage> {
 
   changeWords() {
     setState(() {
-      randomWord1 = words[Random().nextInt(500)];
-      randomWord2 = words[Random().nextInt(500)];
-      randomWord3 = words[Random().nextInt(500)];
+      randomWord1 = WordPair.random(random:Random()).asCamelCase;
+      randomWord2 = WordPair.random(random:Random()).asCamelCase;
+      randomWord3 = WordPair.random(random:Random()).asCamelCase;
     });
   }
 
@@ -47,7 +48,7 @@ class _randomWordPageState extends State<randomWordPage> {
           children: <Widget>[
             Center(
               child: Text(
-                '${randomWord1}  ${randomWord2}  ${randomWord3}',
+                '${randomWord1}${randomWord2}${randomWord3}',
                 style: TextStyle(
                   fontSize: 20,
                 ),
